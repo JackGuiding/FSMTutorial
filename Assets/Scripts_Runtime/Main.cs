@@ -5,14 +5,17 @@ using UnityEngine;
 namespace FSMTutorial {
 
     public class Main : MonoBehaviour {
-        // Start is called before the first frame update
+
+        [SerializeField] RoleEntity role;
+
         void Start() {
-            Debug.Log("Hellko");
+            role.Enter_Idle();
         }
 
-        // Update is called once per frame
         void Update() {
-
+            float dt = Time.deltaTime;
+            RoleFSMController.Tick(role, dt);
         }
+
     }
 }
